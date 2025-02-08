@@ -8,11 +8,10 @@ const display = document.getElementById("display");
 
 
 
+
 const num_elements = document.querySelectorAll('.number');
 
 num_elements.forEach(element => {element.addEventListener('click',() => {
-    
-    
     if(!op_bool){
         a += element.id;
         display.textContent = a;
@@ -33,8 +32,8 @@ op_elements.forEach(element => {element.addEventListener('click',() => {
             display.textContent = "aww heck nah lil bro";
         }
         else{
-            display.textContent = operate(parseInt(a || last_result),parseInt(b),op);
-            last_result = operate(parseInt(a || last_result),parseInt(b),op);
+            display.textContent = operate(parseFloat(a != "" ? a : last_result),parseFloat(b),op);
+            last_result = operate(parseFloat(a != "" ? a:  last_result),parseFloat(b),op);
         }
         a = "";
         b = "";
@@ -59,7 +58,7 @@ const clear = document.querySelector('#clear');
 clear.addEventListener('click',() => {
     a = "";
     b= "";
-    last_a = "";
+    last_result = "";
     op_bool = false;
     op = "";
     display.textContent = "";
