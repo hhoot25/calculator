@@ -27,6 +27,9 @@ const op_elements = document.querySelectorAll('.operator');
 
 op_elements.forEach(element => {element.addEventListener('click',() => {
     if(element.id == 'equal' && op_bool == true){
+        if(b == ""){
+            return;
+        }
         //custom text if user tries to divide by 0
         if(op == 'divide' && b == "0"){
             document.querySelector('#clear').click();
