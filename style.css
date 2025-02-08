@@ -33,10 +33,7 @@ body{
     flex:1;
 }
 
-#clear{
-    flex:.1;
-    background-color:pink;
-}
+
 
 #main_buttons{
     display:flex;
