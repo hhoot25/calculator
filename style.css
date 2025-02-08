@@ -1,3 +1,10 @@
+*{
+    font-family:monospace;
+    font-size:35px;
+    font-weight:500;
+    color:#ffffff;
+}
+
 body{
     display:flex;
     justify-content:center;
@@ -12,16 +19,19 @@ body{
     display:flex;
     background-color:rgb(212, 212, 212);
     flex-direction:column;
+    background-color:black;
     width:500px;
-    height:800px;
-    padding:30px;
+    height:850px;
+    border-radius:30px;
     
 }
 
 #display{
-    background-color:grey;
+    
     font-size:50px;
-    flex:.5;
+    padding:30px;
+    flex:.3;
+    
     
 
 }
@@ -29,7 +39,7 @@ body{
 #buttons{
     display:flex;
     flex-direction:column;
-    background-color:blue;
+    padding:10px;
     flex:1;
 }
 
@@ -48,11 +58,36 @@ body{
     flex:1;
 }
 
-#plus{
-    flex:2;
-}
 
 button{
     flex:1;
+}
+
+.operator{
+    font-size:45px;
+    font-weight:bolder;
+    color:#5dad3c;
+    
+}
+
+#clear{
+    color:rgb(238, 103, 103)
+}
+
+#equal{
+    color:#ffffff;
+    background-color:#2ead0f;
+}
+
+.circle-button{
+    border-radius:50%;
+    margin:10px;
+    background-color:#272626;
+    border:none;
+    
+}
+
+.circle-button:hover{
+    background-color:#717070;
 }
 

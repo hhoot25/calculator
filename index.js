@@ -29,7 +29,9 @@ op_elements.forEach(element => {element.addEventListener('click',() => {
     if(element.id == 'equal' && op_bool == true){
         //custom text if user tries to divide by 0
         if(op == 'divide' && b == "0"){
+            document.querySelector('#clear').click();
             display.textContent = "aww heck nah lil bro";
+            
         }
         else{
             display.textContent = operate(parseFloat(a != "" ? a : last_result),parseFloat(b),op);
