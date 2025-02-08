@@ -1,5 +1,6 @@
 let a = "";
 let b= "";
+let last_result = "";
 let op_bool = false;
 let op = "";
 const display = document.getElementById("display");
@@ -27,8 +28,15 @@ const op_elements = document.querySelectorAll('.operator');
 
 op_elements.forEach(element => {element.addEventListener('click',() => {
     if(element.id == 'equal' && op_bool == true){
-        display.textContent = operate(parseInt(a),parseInt(b),op);
-        a = operate(parseInt(a),parseInt(b),op);
+        //custom text if user tries to divide by 0
+        if(op == 'divide' && b == "0"){
+            display.textContent = "aww heck nah lil bro";
+        }
+        else{
+            display.textContent = operate(parseInt(a || last_result),parseInt(b),op);
+            last_result = operate(parseInt(a || last_result),parseInt(b),op);
+        }
+        a = "";
         b = "";
         op = "";
         op_bool = false;
@@ -41,7 +49,7 @@ op_elements.forEach(element => {element.addEventListener('click',() => {
     op_bool = true;
     op = element.id;
 
-    display.textContent = "";
+    
 
     });
         });
@@ -51,6 +59,7 @@ const clear = document.querySelector('#clear');
 clear.addEventListener('click',() => {
     a = "";
     b= "";
+    last_a = "";
     op_bool = false;
     op = "";
     display.textContent = "";
@@ -62,20 +71,26 @@ function numClicked(num){
 
 
 function add(a, b){
-    return a + b;
+    return roundNumber(a + b, 5);
 }
 
 
 function subtract(a,b){
-    return a - b;
+    return roundNumber(a - b, 5);
 }
 
 function multiply(a,b){
-    return a*b;
+    return roundNumber(a*b, 5);
 }
 
 function divide(a,b){
-    return a/b;
+    return roundNumber(a/b , 5);
+}
+
+function roundNumber(number, digits){
+    let multiple = Math.pow(10, digits);
+    let rndedNum = Math.round(number * multiple) / multiple;
+    return rndedNum;
 }
 
 function operate(a,b, op){
