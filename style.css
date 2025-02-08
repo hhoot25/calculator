@@ -20,6 +20,7 @@ body{
 
 #display{
     background-color:grey;
+    font-size:50px;
     flex:.5;
     
 
@@ -33,6 +34,7 @@ body{
 }
 
 #clear{
+    flex:.1;
     background-color:pink;
 }
 
